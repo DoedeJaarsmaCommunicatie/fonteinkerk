@@ -4,6 +4,7 @@
 }
 
 .nav {
+  /* purgecss ignore current */
   @apply bg-gray;
   position: absolute;
   top: 100%;
@@ -16,6 +17,7 @@
   transform-origin: top right;
 
   &.active {
+    /* purgecss ignore current */
     transform: scale(1);
   }
 }
