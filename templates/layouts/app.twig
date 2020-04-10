@@ -11,6 +11,8 @@
 
 {% block content %}{{ post.content }}{% endblock %}
 
+{{ include('partials/mc-form.html.twig')|apply_filters('fonk/views/mc-form/render') }}
+
 {% block footer %}
 {% include 'templates/layouts/helpers/footer.twig' %}
 {% endblock footer %}
