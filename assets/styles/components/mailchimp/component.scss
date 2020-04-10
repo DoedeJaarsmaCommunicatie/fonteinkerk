@@ -22,17 +22,27 @@
 
 .mc-group-fifty-fifty {
   @extend .mc-grid-group;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  @screen md {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .mc-group-sixty-thirty {
   @extend .mc-grid-group;
-  grid-template-columns: 6fr 3fr;
+  grid-template-columns: 1fr;
+  @screen md {
+    grid-template-columns: 6fr 3fr;
+  }
 }
 
 .mc-group-thirty-sixty {
   @extend .mc-grid-group;
-  grid-template-columns: 3fr 6fr;
+  grid-template-columns: 1fr;
+  @screen md {
+    grid-template-columns: 3fr 6fr;
+  }
 }
 
 .mc-field-group {
