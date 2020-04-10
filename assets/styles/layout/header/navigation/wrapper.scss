@@ -15,6 +15,7 @@
   transform: scale(0);
   transition: all 225ms ease;
   transform-origin: top right;
+  z-index: 10;
 
   &.active {
     /* purgecss ignore current */
