@@ -1,0 +1,24 @@
+<meta charset="{{ site.charset }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ wp_title }}</title>
+
+<meta name="description" content="{{ site.description }}">
+<meta name="base_assets" content="{{ theme.link }}/">
+
+<script src="https://kit.fontawesome.com/21113589f1.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ theme.link }}/dist/styles/app.css">
+
+<!-- start custom theme code -->
+<script>
+    {{ theme.theme_mod('code_header_js')|raw }}
+</script>
+
+<style type="text/css">
+    {{ theme.theme_mod('code_header_css')|raw }}
+</style>
+
+{{ theme.theme_mod('code_header_html')|raw }}
+<!-- end custom theme code -->

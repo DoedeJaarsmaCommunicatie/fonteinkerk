@@ -13,3 +13,4 @@ tailwind.config.js
 uwire.config.json
 webpack.mix.js
 yarn.lock
+wp-cli.phar

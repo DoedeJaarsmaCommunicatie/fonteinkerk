@@ -25,3 +25,4 @@ tailwind.config.js  export-ignore
 uwire.config.json   export-ignore
 .distignore         export-ignore
 .gitattributes      export-ignore
+wp-cli.phar         export-ignore

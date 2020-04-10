@@ -1,0 +1,19 @@
+<header class="header" id="header" data-template="helpers:header.twig">
+    <div class="container">
+        {% do action('fonk/views/header/pre') %}
+        <div class="flex">
+            {% set logo = Image(theme.theme_mod('custom-logo')) %}
+            <figure class="custom-logo-wrapper">
+                <img src="{{ logo.src }}" class="custom-logo" alt="{{ logo.alt }}">
+                <a class="custom-logo-link" href="/"></a>
+            </figure>
+
+            <div class="menu-wrapper">
+                <button class="js-menu-button menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        {% do action('fonk/views/header/post') %}
+    </div>
+</header>
