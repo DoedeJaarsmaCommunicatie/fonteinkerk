@@ -1,0 +1,13 @@
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="flex align-center justify-center">
+            {% for item in footerMenu.items %}
+                <a href="{{ item.link }}"
+                   class="footer-nav-item"
+                   title="{{ item.title }}">
+                    {{ item.title }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</footer>
