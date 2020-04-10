@@ -1,0 +1,16 @@
+.nav-item {
+  @apply text-black;
+  display: block;
+
+  &:not(:last-of-type) {
+    @apply mb-4;
+  }
+
+  &:hover {
+    @apply text-primary;
+  }
+}
+.current-menu-item  {
+  /* purgecss ignore current */
+  @apply text-secondary;
+}

@@ -1,0 +1,26 @@
+.menu-wrapper {
+  margin-left: auto;
+  position: relative;
+}
+
+.nav {
+  @apply bg-gray;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: max-content;
+  width: 350px;
+  padding: 1rem 2rem;
+  transform: scale(0);
+  transition: all 225ms ease;
+  transform-origin: top right;
+
+  &.active {
+    transform: scale(1);
+  }
+}
+
+.menu-button {
+  @apply text-primary;
+  font-size: 1.5rem;
+}

@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{5:function(n,i,o){"use strict";o.r(i),i.default={init:function(){},finalize:function(){}}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{5:function(n,t,e){"use strict";e.r(t),t.default={init:function(){},finalize:function(){c()}};var c=function(){document.querySelector(".js-menu-button").addEventListener("click",(function(n){document.querySelector(".nav").classList.toggle("active")}))}}}]);

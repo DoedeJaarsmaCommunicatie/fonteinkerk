@@ -1,0 +1,9 @@
+<nav class="nav">
+    {% do action('fonk/views/header/navbar/pre') %}
+    {% for item in primaryMenu.items %}
+        <a href="{{ item.link }}" title="{{ item.title }}" class="nav-item {{ item.classes|join(' ') }}">
+            {{ item.title }}
+        </a>
+    {% endfor %}
+    {% do action('fonk/views/header/navbar/post') %}
+</nav>

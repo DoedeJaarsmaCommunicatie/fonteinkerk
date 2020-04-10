@@ -1,5 +1,5 @@
 <header class="header" id="header" data-template="helpers:header.twig">
-    <div class="container">
+    <div class="container px-4 lg:px-0">
         {% do action('fonk/views/header/pre') %}
         <div class="flex">
             {% set logo = Image(theme.theme_mod('custom-logo')) %}
@@ -12,6 +12,8 @@
                 <button class="js-menu-button menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
+
+                {{ include('partials/header/navbar.html.twig') }}
             </div>
         </div>
         {% do action('fonk/views/header/post') %}
