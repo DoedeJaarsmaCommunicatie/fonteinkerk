@@ -2,10 +2,11 @@
     <div class="container px-4 lg:px-0">
         {% do action('fonk/views/header/pre') %}
         <div class="flex">
-            {% set logo = Image(theme.theme_mod('custom-logo')) %}
+            {% set logo = Image(theme.theme_mod('custom_logo')) %}
             <figure class="custom-logo-wrapper">
-                <img src="{{ logo.src }}" class="custom-logo" alt="{{ logo.alt }}">
-                <a class="custom-logo-link" href="/"></a>
+                <a class="custom-logo-link" href="/">
+                    <img src="{{ logo.src }}" class="custom-logo" alt="{{ logo.alt }}">
+                </a>
             </figure>
 
             <div class="menu-wrapper">
