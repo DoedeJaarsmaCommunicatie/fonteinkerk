@@ -1,0 +1,12 @@
+// purgecss ignore
+.content {
+  & a {
+    @apply text-secondary;
+    text-decoration: underline;
+  }
+
+  & ul {
+    padding-left: 1rem;
+    list-style-type: disc;
+  }
+}
