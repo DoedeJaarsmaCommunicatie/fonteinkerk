@@ -9,7 +9,7 @@ $context['post'] = new Post();
 $templates = ['views/page.html.twig'];
 
 if (class_exists('\Elementor\Plugin')) {
-	if (\Elementor\Plugin::$instance->db->is_built_with_elementor($context['post']->id)) {
+	if (!\Elementor\Plugin::$instance->db->is_built_with_elementor($context['post']->id)) {
 		array_unshift($templates, 'views/page-no-elementor.html.twig');
 	}
 }
