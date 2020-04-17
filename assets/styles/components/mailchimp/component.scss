@@ -8,8 +8,9 @@
     width: 100%;
   }
 
-  .relative {
+  li.relative {
     padding-left: 2rem;
+    cursor: pointer;
   }
 
   & input[type="checkbox"] {
