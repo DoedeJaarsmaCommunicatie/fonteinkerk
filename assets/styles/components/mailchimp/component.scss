@@ -10,11 +10,13 @@
 
   li.relative {
     padding-left: 2rem;
-    cursor: pointer;
   }
 
   & input[type="checkbox"] {
     display: none;
+    + label {
+      cursor: pointer;
+    }
     + label::before {
       content: '';
       display: block;
