@@ -2,9 +2,11 @@
 namespace App;
 
 use App\Providers\MenuServiceProvider;
+use App\Providers\ContentServiceProvider;
 
 return [
 	'providers'     => [
-	    MenuServiceProvider::class
+	    MenuServiceProvider::class,
+		ContentServiceProvider::class
     ]
 ];

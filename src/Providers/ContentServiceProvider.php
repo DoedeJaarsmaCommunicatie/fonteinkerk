@@ -16,7 +16,7 @@ class ContentServiceProvider extends ServiceProvider
 			'name'     => 'woning',
 			'singular' => 'Woning',
 			'plural'   => 'Woningen',
-			'slug'     => 'woningen',
+			'slug'     => 'woning',
 		]);
 
 		$lot->register();
