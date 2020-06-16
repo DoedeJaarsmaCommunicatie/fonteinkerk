@@ -4,7 +4,6 @@
 }
 
 .nav {
-  /* purgecss ignore current */
   @apply bg-gray;
   position: absolute;
   top: 100%;
@@ -18,8 +17,15 @@
   z-index: 10;
 
   &.active {
-    /* purgecss ignore current */
     transform: scale(1);
+  }
+
+  @screen lg {
+    position: static;
+    display: flex;
+    transform: none;
+    background: white;
+    widows: auto;
   }
 }
 

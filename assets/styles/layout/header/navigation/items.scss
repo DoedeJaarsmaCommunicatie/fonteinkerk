@@ -9,8 +9,13 @@
   &:hover {
     @apply text-primary;
   }
+
+  @screen lg {
+    &:not(:last-of-type) {
+      @apply mr-4 mb-0;
+    }
+  }
 }
 .current-menu-item  {
-  /* purgecss ignore current */
   @apply text-secondary;
 }
