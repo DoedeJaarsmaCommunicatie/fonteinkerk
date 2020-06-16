@@ -26,10 +26,16 @@
     transform: none;
     background: white;
     width: auto;
+    padding: 2rem 0;
   }
 }
 
 .menu-button {
   @apply text-primary;
   font-size: 1.5rem;
+
+  > small {
+    font-size: 12px;
+    display: block;
+  }
 }
