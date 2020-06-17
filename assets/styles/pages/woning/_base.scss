@@ -1,0 +1,70 @@
+.cool-bg {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    content: ' ';
+    clip-path: polygon(0px 90px, 0px 100%, 100% 100%, 100% 0);
+    z-index: -1;
+    pointer-events: none;
+    background: theme('colors.gray');
+  }
+}
+
+.woning-attributes {
+  table {
+    width: 100%;
+    text-align: left;
+  }
+
+  tr {
+    border-bottom: 1px solid theme('colors.primary');
+
+    &:first-of-type ~ & {
+      & th,
+      & td {
+        padding-top: .5rem;
+      }
+    }
+  }
+
+  & th,
+  & td {
+    padding: .5rem .5rem;
+  }
+}
+
+.woning-description {
+  > * {
+    margin-bottom: .5rem;
+  }
+  h2 {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: theme('colors.secondary');
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+}
+
+.title-banner {
+  background: theme('colors.secondary');
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.hero {
+  height: 40vh;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
