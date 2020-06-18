@@ -8,7 +8,7 @@
                 {% block img %}
                     <figure>
                         {% set heroImg = Image(post.meta('afbeelding_header')) %}
-                        <img src="{{ heroImg.src('large') }}" alt="Impressie bouwnummer {{ post.title }}">
+                        <img src="{{ heroImg.src('full') }}" alt="Impressie bouwnummer {{ post.title }}">
 
                         <figcaption class="hero-overlay">
                             {% block caption %}{% endblock %}
@@ -56,7 +56,7 @@
                             {% if post.meta('soort_buitenruimte') %}
                                 <tr>
                                     <th scope="row">Soort buitenruimte</th>
-                                    <td>Ca. {{ post.meta('soort_buitenruimte') }} m<sup>2</sup></td>
+                                    <td>{{ post.meta('soort_buitenruimte') }}</td>
                                 </tr>
                             {% endif %}
                             {% if post.meta('kamers') %}

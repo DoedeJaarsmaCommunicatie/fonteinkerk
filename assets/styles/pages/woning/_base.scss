@@ -62,9 +62,14 @@
 .hero {
   height: 40vh;
 
+  figure {
+    height: 100%;
+  }
+
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    max-height: 100%;
   }
 }
