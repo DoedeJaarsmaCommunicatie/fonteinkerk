@@ -2,80 +2,134 @@
 
 {% block content %}
     <main class="woning-main">
+
+        <div class="">
+            <section class="title-banner py-8 container mx-auto px-4 lg:px-0">
+                <h1>
+                    Bouwnummer {{ post.title }} -
+                    <span class="">
+                        {{ post.meta('verdieping') }}
+                    </span>
+                </h1>
+            </section>
+        </div>
+
         {% if post.meta('afbeelding_header') %}
             {% block hero %}
-            <header class="hero">
+            <header class="hero pb-8 px-4 lg:px-0">
                 {% block img %}
-                    <figure>
-                        {% set heroImg = Image(post.meta('afbeelding_header')) %}
-                        <img src="{{ heroImg.src('full') }}" alt="Impressie bouwnummer {{ post.title }}">
+                    <div class="container mx-auto lg:flex">
+                        <figure class="lg:w-2/3 lg:mr-12">
+                            {% set heroImg = Image(post.meta('afbeelding_header')) %}
+                            <img src="{{ heroImg.src('full') }}" alt="Impressie bouwnummer {{ post.title }}">
 
-                        <figcaption class="hero-overlay">
-                            {% block caption %}{% endblock %}
-                        </figcaption>
-                    </figure>
+                            <figcaption class="hero-overlay">
+                                {% block caption %}{% endblock %}
+                            </figcaption>
+                        </figure>
+                        <aside class="woning-attributes lg:w-1/3">
+                            {% block attributes %}
+                                <h2>Specificaties</h2>
+                                <table>
+                                    <tbody>
+                                    {% if post.meta('type') %}
+                                        <tr>
+                                            <th scope="row">Woningtype</th>
+                                            <td>{{ post.meta('type') }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('verdieping') %}
+                                        <tr>
+                                            <th scope="row">Verdieping</th>
+                                            <td>{{ post.meta('verdieping') }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('woonoppervlakte') %}
+                                        <tr>
+                                            <th scope="row">Woonoppervlakte</th>
+                                            <td>Ca. {{ post.meta('woonoppervlakte') }} m<sup>2</sup></td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('buitenruimte') %}
+                                        <tr>
+                                            <th scope="row">Buitenruimte</th>
+                                            <td>Ca. {{ post.meta('buitenruimte') }} m<sup>2</sup></td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('soort_buitenruimte') %}
+                                        <tr>
+                                            <th scope="row">Soort buitenruimte</th>
+                                            <td>{{ post.meta('soort_buitenruimte') }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('kamers') %}
+                                        <tr>
+                                            <th scope="row">Slaapkamers</th>
+                                            <td>{{ post.meta('kamers') }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if post.meta('status') %}
+                                        <tr>
+                                            <th scope="row">Status</th>
+                                            <td>{{ post.get_field('status')|capitalize|replace({'-': ' '}) }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            {% endblock %}
+
+                            {% block floor_plan %}
+                                {% if post.meta('verdiepingoverzicht') %}
+                                    <h2 class="mt-12">
+                                        Overzicht {{ post.meta('verdieping') }}
+                                    </h2>
+                                    <picture class="woning-floor_plan block">
+                                        <img src="{{ Image(post.meta('verdiepingoverzicht')).src }}" alt="Verdiepingsoverzicht bouwnummer {{ post.title }}">
+                                    </picture>
+                                {% endif %}
+                            {% endblock %}
+                        </aside>
+                    </div>
                 {% endblock %}
             </header>
             {% endblock %}
         {% endif %}
 
-        <section class="title-banner py-8">
-            <h1 class="text-center">Bouwnummer {{ post.title }}</h1>
-        </section>
-
-        <div class="cool-bg">
-            <div class="container mx-auto lg:flex py-16 px-4 lg:px-0">
-                <section class="content woning-description lg:w-2/3 lg:mr-4">
-                    {% block description %}
+        <div class="bg-gray">
+            <section class="container mx-auto lg:flex py-8 px-4 lg:px-0">
+                <div class="lg:w-2/3 woning-description content">
+                    {% block main_content %}
                         <h2>Beschrijving</h2>
-                        {{ post.content }}
+                        {{ post.content|wpautop }}
                     {% endblock %}
-                </section>
-                <aside class="woning-attributes lg:w-1/3">
-                    {% block attributes %}
-                        <table>
-                            <tbody>
-                            {% if post.meta('type') %}
-                                <tr>
-                                    <th scope="row">Type</th>
-                                    <td>{{ post.meta('type') }}</td>
-                                </tr>
-                            {% endif %}
-                            {% if post.meta('woonoppervlakte') %}
-                                <tr>
-                                    <th scope="row">Woonoppervlakte</th>
-                                    <td>Ca. {{ post.meta('woonoppervlakte') }} m<sup>2</sup></td>
-                                </tr>
-                            {% endif %}
-                            {% if post.meta('buitenruimte') %}
-                                <tr>
-                                    <th scope="row">Buitenruimte</th>
-                                    <td>Ca. {{ post.meta('buitenruimte') }} m<sup>2</sup></td>
-                                </tr>
-                            {% endif %}
-                            {% if post.meta('soort_buitenruimte') %}
-                                <tr>
-                                    <th scope="row">Soort buitenruimte</th>
-                                    <td>{{ post.meta('soort_buitenruimte') }}</td>
-                                </tr>
-                            {% endif %}
-                            {% if post.meta('kamers') %}
-                                <tr>
-                                    <th scope="row">Kamers</th>
-                                    <td>{{ post.meta('kamers') }}</td>
-                                </tr>
-                            {% endif %}
-                            {% if post.meta('status') %}
-                                <tr>
-                                    <th scope="row">Status</th>
-                                    <td>{{ post.get_field('status')|capitalize|replace({'-': ' '}) }}</td>
-                                </tr>
-                            {% endif %}
-                            </tbody>
-                        </table>
-                    {% endblock %}
-                </aside>
-            </div>
+                </div>
+                <div class="lg:w-1/3">
+                    {% if post.meta('gevelimpressie') %}
+                        <picture class="woning-exterior_impression">
+                            <img src="{{ Image(post.meta('gevelimpressie')).src }}" alt="Gevel aanzicht bouwnummer {{ post.title }}">
+                        </picture>
+                    {% endif %}
+                </div>
+            </section>
         </div>
+
+        {% if post.meta('plattegrond') %}
+            <div class="pt-16 px-4 lg:px-0">
+                <div class="container mx-auto woning-description">
+                    <h2>
+                        Plattegrond
+                    </h2>
+                    <figure>
+                        <img src="{{ Image(post.meta('plattegrond')).src }}" alt="Plattegrond bouwnummer {{ post.title }}" class="" >
+                    </figure>
+                </div>
+            </div>
+        {% endif %}
+
+        <section class="text-center cool-bg pb-24 pt-8 bg-primary" style='background-image: url("https://wonenindefonteinkerk.nl/wp-content/uploads/2020/04/bg.png"); background-size: cover; background-position: center;'>
+            <a href="/woningen/" class="mc-button" style="margin-top: 0; display: inline-block;">
+                Terug naar woningoverzicht
+            </a>
+        </section>
     </main>
 {% endblock %}
