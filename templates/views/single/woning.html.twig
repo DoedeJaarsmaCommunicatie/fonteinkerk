@@ -68,6 +68,12 @@
                                             <td>{{ post.meta('kamers') }}</td>
                                         </tr>
                                     {% endif %}
+                                    {% if post.meta('parkeerplaats') %}
+                                        <tr>
+                                            <th scope="row">Parkeerplaats</th>
+                                            <td>{{ post.get_field('parkeerplaats') }}</td>
+                                        </tr>
+                                    {% endif %}
                                     {% if post.meta('status') %}
                                         <tr>
                                             <th scope="row">Status</th>
