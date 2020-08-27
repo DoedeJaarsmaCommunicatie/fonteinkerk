@@ -19,6 +19,10 @@ class ContentServiceProvider extends ServiceProvider
 			'slug'     => 'woning',
 		]);
 
+		$lot->options([
+			'supports' => ['title', 'editor', 'page-attributes']
+		]);
+
 		$lot->register();
 	}
 }

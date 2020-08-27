@@ -102,3 +102,27 @@
     box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
   }
 }
+
+.lot-prev-next-button {
+  @apply px-4 text-white relative;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: none;
+
+  &::after {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    content: ' ';
+    background: white;
+    height: 1px;
+    transition: all 225ms ease;
+  }
+
+  &:hover {
+    &::after {
+      width: 0;
+    }
+  }
+}

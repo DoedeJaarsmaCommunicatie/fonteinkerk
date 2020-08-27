@@ -1,4 +1,6 @@
 // purgecss ignore
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,500;1,600&display=swap');
+
 .content {
   & a {
     @apply text-secondary;
@@ -10,6 +12,7 @@
     list-style-type: disc;
   }
 }
+
 html, body {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }

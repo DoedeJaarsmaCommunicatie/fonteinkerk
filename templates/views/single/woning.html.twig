@@ -19,7 +19,7 @@
             <header class="hero pb-8 px-4 lg:px-0">
                 {% block img %}
                     <div class="container mx-auto lg:flex">
-                        <figure class="lg:w-2/3 lg:mr-12">
+                        <figure class="lg:w-2/3 lg:mr-12 pb-8 lg:pb-0">
                             {% set heroImg = Image(post.meta('afbeelding_header')) %}
                             <img src="{{ heroImg.src('full') }}" alt="Impressie bouwnummer {{ post.title }}">
 
@@ -47,19 +47,19 @@
                                     {% if post.meta('woonoppervlakte') %}
                                         <tr>
                                             <th scope="row">Woonoppervlakte</th>
-                                            <td>Ca. {{ post.meta('woonoppervlakte') }} m<sup>2</sup></td>
+                                            <td>ca. {{ post.meta('woonoppervlakte') }} m<sup>2</sup></td>
                                         </tr>
                                     {% endif %}
                                     {% if post.meta('buitenruimte') %}
                                         <tr>
                                             <th scope="row">Buitenruimte</th>
-                                            <td>Ca. {{ post.meta('buitenruimte') }} m<sup>2</sup></td>
+                                            <td>ca. {{ post.meta('buitenruimte') }} m<sup>2</sup></td>
                                         </tr>
                                     {% endif %}
                                     {% if post.meta('soort_buitenruimte') %}
                                         <tr>
                                             <th scope="row">Soort buitenruimte</th>
-                                            <td>{{ post.meta('soort_buitenruimte') }}</td>
+                                            <td style="text-transform: lowercase">{{ post.meta('soort_buitenruimte') }}</td>
                                         </tr>
                                     {% endif %}
                                     {% if post.meta('kamers') %}
@@ -71,7 +71,7 @@
                                     {% if post.meta('status') %}
                                         <tr>
                                             <th scope="row">Status</th>
-                                            <td>{{ post.get_field('status')|capitalize|replace({'-': ' '}) }}</td>
+                                            <td>{{ post.get_field('status')|replace({'-de-': '-'})|replace({'-': ' '}) }}</td>
                                         </tr>
                                     {% endif %}
                                     </tbody>
@@ -108,6 +108,19 @@
                         <picture class="woning-exterior_impression">
                             <img src="{{ Image(post.meta('gevelimpressie')).src }}" alt="Gevel aanzicht bouwnummer {{ post.title }}">
                         </picture>
+
+                        <div class="js-exterior-lots-360" style="opacity: 0; height: 0; pointer-events: none;">
+                            {{ "[imagemap-slider ids=176,193,191,189,187,185,183,181]"|shortcodes }}
+                        </div>
+
+                        <aside class="flex" style="margin-top: 50px;">
+                            <button class="mc-button js-toggle-exterior-lots-360 mx-auto" type="button">
+                                <span class="js-show-other-lots">Bekijk andere woningen</span>
+                                <span class="js-show-current-lot hidden">Terug naar huidige woning</span>
+                            </button>
+                        </aside>
+                    {% else %}
+                        {{ "[imagemap-slider ids=176,193,191,189,187,185,183,181]"|shortcodes }}
                     {% endif %}
                 </div>
             </section>
@@ -127,6 +140,15 @@
         {% endif %}
 
         <section class="text-center cool-bg pb-24 pt-8 bg-primary" style='background-image: url("https://wonenindefonteinkerk.nl/wp-content/uploads/2020/04/bg.png"); background-size: cover; background-position: center;'>
+            <div class="flex container mx-auto mb-4">
+                {% if prev %}
+                    <a class="lot-prev-next-button" href="{{ prev.link }}"><i class="fas fa-chevron-left mr-2" style="font-size: 1.5rem"></i> Vorige</a>
+                {% endif %}
+
+                {% if next %}
+                    <a class="lot-prev-next-button ml-auto" href="{{ next.link }}">Volgende <i class="fas fa-chevron-right ml-2"  style="font-size: 1.5rem"></i></a>
+                {% endif %}
+            </div>
             <a href="/woningen/" class="mc-button" style="margin-top: 0; display: inline-block;">
                 Terug naar woningoverzicht
             </a>

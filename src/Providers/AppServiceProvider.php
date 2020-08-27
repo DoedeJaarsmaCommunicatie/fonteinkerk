@@ -24,9 +24,9 @@ class AppServiceProvider
 
 	protected function register ()
 	{
-		WP::addStyle('main', WP::getStylesheetUrl() . '/dist/styles/main.css');
+		WP::addStyle('main', WP::getStylesheetUrl() . '/dist/styles/main.css', [], filemtime(WP::getStylesheetDir() . '/dist/styles/main.css'));
 
-		WP::addScript('main', WP::getStylesheetUrl() . '/dist/scripts/main.js');
+		WP::addScript('main', WP::getStylesheetUrl() . '/dist/scripts/main.js', [], filemtime(WP::getStylesheetDir() . '/dist/scripts/main.js'));
 
 		WP::enqueueStyles();
 		WP::enqueueScripts();
