@@ -38,7 +38,7 @@ function getCachedPrevOrFalse($post) {
 		return false;
 	}
 
-	return Helper::transient("post_{$current_lot}_prev_post", function () use ($current_lot) {
+	return Helper::transient("post_{$current_lot}_prev_post", static function () use ($current_lot) {
 		$next_lot = --$current_lot;
 
 		$query = new PostQuery([
@@ -55,6 +55,7 @@ $context = Timber::get_context();
 $context['post'] = new Post();
 $context['next'] = getCachedNextOrFalse($context['post']);
 $context['prev'] = getCachedPrevOrFalse($context['post']);
+$context['can_check_price'] = true;
 
 $templates = [
 	Template::viewHtmlTwigFile('single/woning')

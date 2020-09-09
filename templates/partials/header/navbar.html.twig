@@ -1,9 +1,23 @@
 <nav class="nav">
     {% do action('fonk/views/header/navbar/pre') %}
     {% for item in primaryMenu.items %}
-        <a href="{{ item.link }}" title="{{ item.title }}" class="nav-item {{ item.classes|join(' ') }}">
-            {{ item.title }}
-        </a>
+        <div class="relative {{ loop.last? '' : 'mr-8' }} nav-wrapper">
+            <a href="{{ item.link }}" title="{{ item.title }}" class="nav-item {{ item.classes|join(' ') }}">
+                {{ item.title }}
+
+                {% if item.children %}
+                    <i class="fas fa-chevron-down ml-2"></i>
+                {% endif %}
+            </a>
+
+            {% if item.children %}
+                <ul class="submenu">
+                    {% for child in item.children %}
+                        <li><a href="{{ child.link }}">{{ child.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
     {% endfor %}
     {% do action('fonk/views/header/navbar/post') %}
 </nav>

@@ -13,6 +13,8 @@ const purger = mix.inProduction()
         ],
 
         defaultExtractor: content => content.match(/[\w-\/:]+(?<!:)/g) || [],
+
+          whitelist: ['bulb__status--in-verkoop']
       }),
     ]
   : [];

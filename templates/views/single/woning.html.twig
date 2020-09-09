@@ -74,6 +74,12 @@
                                             <td>{{ post.get_field('parkeerplaats') }}</td>
                                         </tr>
                                     {% endif %}
+                                    {% if post.meta('prijs') and can_check_price %}
+                                        <tr>
+                                            <th scope="row">Prijs</th>
+                                            <td style="text-transform: lowercase">&euro; {{ post.meta('prijs') }}</td>
+                                        </tr>
+                                    {% endif %}
                                     {% if post.meta('status') %}
                                         <tr>
                                             <th scope="row">Status</th>

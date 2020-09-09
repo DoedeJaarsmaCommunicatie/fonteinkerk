@@ -39,3 +39,30 @@
     display: block;
   }
 }
+
+.submenu {
+  @screen lg {
+    transform: scale(0, 1);
+    position: absolute;
+    top: 100%;
+    left: -8px;
+    padding: 14px 8px;
+    background: #f1efe7;
+    transition: all 226ms ease;
+    box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
+
+    &:hover {
+      display: block;
+    }
+  }
+}
+
+.nav-wrapper {
+  &:hover {
+    .submenu {
+      @screen lg {
+        transform: scale(1);
+      }
+    }
+  }
+}

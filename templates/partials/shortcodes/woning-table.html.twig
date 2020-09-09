@@ -1,0 +1,33 @@
+<table class="lot-table">
+    <thead>
+    <tr>
+        <th>Bouwnummer</th>
+        <th>Verdieping</th>
+        <th>&euro;</th>
+        <th>Oppervlakte</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for lot in lots %}
+        <tr @click="window.location.href = {{ lot.link }}">
+            <td>{{ lot.title }}</td>
+            <td>{{ lot.get_field('verdieping') }}</td>
+            <td>&euro; {{ lot.get_field('prijs') }}</td>
+            <td>{{ lot.get_field('woonoppervlakte') }} m<sup>2</sup></td>
+            <td>
+                <span class="bulb__status bulb__status--{{ lot.get_field('status')|replace({'-de-': '-'}) }}"></span>
+                {{ lot.get_field('status')|replace({'-de-': '-'})|replace({'-': ' '}) }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    document.querySelector('.woning-list-toggle').addEventListener('click', function () {
+		document.querySelector('.lot-table').classList.toggle('active');
+		document.querySelector('.imagemap-slider').toggleAttribute('hidden');
+    })
+</script>

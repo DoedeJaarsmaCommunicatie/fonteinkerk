@@ -1,0 +1,35 @@
+.lot-table {
+  display: none;
+  width: 100%;
+  text-align: left;
+  &.active {
+    display: table;
+  }
+
+  th,
+  td {
+    padding: .25rem .5rem;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  .bulb__status {
+    display: inline-block;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 100%;
+    border: .3rem solid;
+
+    &--in-verkoop {
+      border-color: #4fbe4f
+    }
+  }
+}

@@ -16,3 +16,22 @@ if (is_admin_bar_showing() || is_admin()) {
 		'fonteinkerk'
 	);
 }
+
+add_shortcode('woning-table', static function () {
+    $context = Timber::get_context();
+
+    $lots = Timber::get_posts(
+        [
+            'post_type' => 'woning',
+            'posts_per_page' => -1,
+        ]
+    );
+
+    usort($lots, static function ($lot1, $lot2) {
+        return $lot1->title <=> $lot2->title;
+    });
+
+    $context['lots'] = $lots;
+
+    return Timber::compile(\App\Helpers\Template::partialHtmlTwigFile('shortcodes/woning-table'), $context);
+});
