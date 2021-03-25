@@ -150,6 +150,17 @@
                 </div>
             </div>
         {% endif %}
+        
+        {% if post.meta('vr_veld_1') %}
+            <div class="pt-16 px-4 lg:px-0">
+                <div class="container mx-auto woning-vr">
+                    <h2>
+                        Bekijk de woning in virtual reality
+                    </h2>
+                    {{ post.meta('vr_veld_1') }}
+                </div>
+            </div>
+        {% endif %}
 
         <section class="text-center cool-bg pb-24 pt-8 bg-primary" style='background-image: url("https://wonenindefonteinkerk.nl/wp-content/uploads/2020/04/bg.png"); background-size: cover; background-position: center;'>
             <div class="flex container mx-auto mb-4">
