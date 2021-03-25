@@ -50,15 +50,6 @@ function getCachedPrevOrFalse($post) {
 	});
 }
 
-function AddVirtualReality($post) {
-	$shortcode_vr = $post->post.meta('vr_veld_1');
-	if (strpos($shortcode_vr, '') !== false) {
-		return false;
-	} else {
-		echo do_shortcode("$shortcode_vr");
-	}
-}
-
 $context = Timber::get_context();
 $context['post'] = new Post();
 $context['next'] = getCachedNextOrFalse($context['post']);
